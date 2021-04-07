@@ -1,5 +1,5 @@
 # Simple password generator
-![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-88d945?style=for-the-badge&logo=github)
+![](https://img.shields.io/badge/Version-1.4.0-78c675?style=flat&logo=github) ![](https://img.shields.io/github/repo-size/ODIRFY/simplepg)
 
 
 **simplepg is a *simple* password generator written in Python, with which you can generate passwords.**
