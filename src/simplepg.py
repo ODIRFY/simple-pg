@@ -13,24 +13,43 @@ chars = string.digits + string.ascii_letters + string.punctuation
 
 # block unicode symbol
 b = "▁"
+s = "            "
 
 # generator function for main file
 def generator():
-    print("Welcome to simplepg!\n\n\n         Loading...")
+    os.system('clear')
+    print(" simplepg – Loading...")
     while True:
         # Waiting for input from user.
         time.sleep(0.640)
         os.system('clear')
 
         try: 
-            userinput = int(input("Please enter the length of your password: "))
-        
+            userinput = int(input("Please enter the length of your password or 0 for fast mode: "))
+            
         # Prints an error if input is invalid.
         except:
             os.system('clear')
             userinput = int(input("Invalid Input. Please enter a number: "))
 
+        if userinput == 0:
+            os.system('clear')
+            
+            for _ in range(5):
+                print(''.join(secrets.choice(chars) for _ in range(12)), end="")
+                print(s + ''.join(secrets.choice(chars) for _ in range(12)), end="")
+                print(s + ''.join(secrets.choice(chars) for _ in range(12)), end="")
+                print(s + ''.join(secrets.choice(chars) for _ in range(12)), end="")
+                print(s + ''.join(secrets.choice(chars) for _ in range(12)), end="")
+                print(s + ''.join(secrets.choice(chars) for _ in range(12)))
+                
+            
+            break   
+        
+        
         # Prints the generated password and shows the lenth.
+        
+
         os.system('clear')
         time.sleep(0.4)
         print("Generated password " + "(" + str(userinput) + " characters):\n")
@@ -39,10 +58,8 @@ def generator():
         print(''.join(secrets.choice(chars) for _ in range(userinput)) + "\n\n" + b*25 + "\n")
         
         # Prints a rating (in terms of length).
-        if userinput == 0:
-            print("A password with 0 characters does not exist.")
                 
-        elif userinput >=24:
+        if userinput >=24:
             print("The generated password is very very strong, it is impossible to crack it.")
             
         elif userinput >=8:
@@ -58,16 +75,13 @@ def generator():
         def new_pass():
             while True:
                 time.sleep(0.640)
-                os.system('clear')
 
                 try: 
-                    userinput = int(input("Length: ")) 
+                    userinput = int(input("\n\nLength: ")) 
 
                 except:
                     os.system('clear')
                     userinput = int(input("Invalid Input, try again: "))
-
-                os.system('clear')
                 time.sleep(0.4)
                 print("Password " + "(" + str(userinput) + " characters):\n")
                 print(b*25)
@@ -90,7 +104,6 @@ def generator():
                 exit = input("\nGenerate new password? [y/n]: ")
                 if exit == "n":
                     time.sleep(0.3)
-                    os.system('clear')
                     break
                 elif exit == "y":
                     new_pass()
@@ -105,6 +118,7 @@ def generator():
             os.system('clear')
             break
         elif exit == "y":
+            os.system('clear')
             new_pass()
             break
         else:
